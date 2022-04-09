@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+ hits:
+  build: .
+  image: hits:lesson-4
+  ports:
+   - 5000:5000
+  depends_on:
+   - redis
+ redis:
+  image: redis:alpine
+  volumes:
+   - redis-data:/data
+volumes:
+ redis-data:
+  driver: local
